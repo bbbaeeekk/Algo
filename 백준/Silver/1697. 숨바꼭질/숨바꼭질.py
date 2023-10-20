@@ -2,18 +2,17 @@ from collections import deque
 
 n, k = map(int,input().split())
 
-q = deque([[n,0]])
-visited = [False]*100001
-
-
+q = deque([n])
+visited = [0]*100001
 
 while q:
-    s,t = q.popleft()
-    visited[s] = True
+    s = q.popleft()
     if s == k:
-        print(t)
+        print(visited[s])
         break
 
     for a in [s-1,s+1,s*2]:
         if  0 <= a <= 100000 and not visited[a]:
-            q.append([a,t+1])
+            visited[a] = visited[s]+1
+            q.append(a)
+
