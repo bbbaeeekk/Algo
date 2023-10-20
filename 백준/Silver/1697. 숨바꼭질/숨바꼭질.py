@@ -17,12 +17,9 @@ while q:
         print(t)
         break
 
-    a = s+1
-    if inragne(a) and not visited[a]:
-        q.append([a,t+1])
+    for a in [s-1,s+1,s*2]:
+
+        if inragne(a) and not visited[a]:
+            q.append([a,t+1])
     a = s-1
-    if inragne(a) and not visited[a]:
-        q.append([a,t+1])
-    a = s*2
-    if inragne(a) and not visited[a]:
-        q.append([a,t+1])
+
